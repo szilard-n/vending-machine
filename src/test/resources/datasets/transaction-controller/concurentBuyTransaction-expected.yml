@@ -1,0 +1,16 @@
+t_user:
+  - id: "00000000-2000-0000-0000-000000000000"
+    username: "seller"
+    password: "$2a$12$YEibsVZE2J0EPZJ9c/cOOuK3/mT7dPc8pxGdmcY7ktRxRuovBvkjm"
+    deposit: 50
+  - id: "00000000-3000-0000-0000-000000000000"
+    username: "buyerWithMoney"
+    password: "$2a$12$YEibsVZE2J0EPZJ9c/cOOuK3/mT7dPc8pxGdmcY7ktRxRuovBvkjm"
+    deposit: 45
+
+t_product:
+  - id: "00000000-1000-0000-0000-000000000000"
+    product_name: "PRODUCT_1"
+    amount_available: 95
+    cost: 10
+    seller_id: "00000000-2000-0000-0000-000000000000"

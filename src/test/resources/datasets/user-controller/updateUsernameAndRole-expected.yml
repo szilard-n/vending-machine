@@ -1,0 +1,9 @@
+t_user:
+  - id: "00000000-1000-0000-0000-000000000000"
+    username: "buyerToSeller"
+    password: "$2a$12$YEibsVZE2J0EPZJ9c/cOOuK3/mT7dPc8pxGdmcY7ktRxRuovBvkjm"
+    deposit: 0
+
+t_user_role:
+  - user_id: "00000000-1000-0000-0000-000000000000"
+    role_id: "00000000-2000-0000-0000-000000000000"

@@ -1,0 +1,2 @@
+ALTER TABLE t_authentication
+ADD COLUMN active BOOLEAN NOT NULL DEFAULT TRUE;

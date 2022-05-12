@@ -1,0 +1,6 @@
+cacheConnection: false
+leakHunter: false
+mergeDataSets: false
+properties:
+  schema: null
+  caseSensitiveTableNames: true

@@ -1,0 +1,6 @@
+t_product:
+  - id: "00000000-1000-0000-0000-000000000000"
+    product_name: "New Product"
+    amount_available: 10
+    cost: 25
+    seller_id: "00000000-2000-0000-0000-000000000000"
