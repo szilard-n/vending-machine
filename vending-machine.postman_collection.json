@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "4d05e80c-9556-43e1-8928-c1576d42c195",
+		"name": "vending-machine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/user",
+			"item": [
+				{
+					"name": "get_users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuZXdVc2VyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTgxMzV9.-ai9zcVgo7wzUG0gcKK_-A6nvPviPwtcV6uzoo2Lj7M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/user",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testUser\",\n    \"password\": \"pwd123\",\n    \"role\": \"ROLE_SELLER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/user",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0VXNlciIsInJvbGVzIjoiUk9MRV9TRUxMRVIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjUxNDk4NTg1fQ.iORyuGct4282FtXq7gnV-1_utsGUbYxI5Tl_1bc51bk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newUsername\": \"testUser12\",\n    \"newRole\": \"ROLE_SELLER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/user",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0VXNlcjEyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg2MTR9.u5ap60PuurF3RofhvrzUsUTzBovwYgvApC53YF3Jucg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPassword\": \"pwd123\",\n    \"newPassword\": \"pwd123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/user/password",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0VXNlcjEyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg2NTV9.5e39Wf3qXizNH6dco0JRQEfK6gAS2Lp5pLaOB0CdAaQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/user",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"uBuyer\",\n    \"password\": \"pwd123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/login",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout_all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1U2VsbGVyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg3MjN9.rhH0mrbsI8QpH_DrU5OEm1pWy1cYQnG7kRpBjVV_uww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/user/logout/all",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"user",
+								"logout",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/product",
+			"item": [
+				{
+					"name": "get_products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1U2VsbGVyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg3NDJ9.7mav0LOJ8mWwQrTjD5MU4za1dNTkwxFCIZ_8TrLacJc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/product",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1U2VsbGVyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg3NDJ9.7mav0LOJ8mWwQrTjD5MU4za1dNTkwxFCIZ_8TrLacJc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productName\": \"kit-kat\",\n    \"amountAvailable\": 10,\n    \"cost\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/product",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1U2VsbGVyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg3NDJ9.7mav0LOJ8mWwQrTjD5MU4za1dNTkwxFCIZ_8TrLacJc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"598d05ca-25c3-413a-95af-5954554f55b1\",\n        \"productName\": \"kit-kat\",\n        \"amountAvailable\": 200,\n        \"cost\": 5\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/product",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1U2VsbGVyIiwicm9sZXMiOiJST0xFX1NFTExFUiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9hcGkvbG9naW4iLCJleHAiOjE2NTE0OTg3NDJ9.7mav0LOJ8mWwQrTjD5MU4za1dNTkwxFCIZ_8TrLacJc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"598d05ca-25c3-413a-95af-5954554f55b1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/product",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/transaction",
+			"item": [
+				{
+					"name": "deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1QnV5ZXIiLCJyb2xlcyI6IlJPTEVfQlVZRVIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjUxNDk5MTA4fQ.yLt31EmUzRMz_9KvEgvB68pyc9SQSL-pcZ5RSdTEaCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/transaction/deposit",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"transaction",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset_deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1QnV5ZXIiLCJyb2xlcyI6IlJPTEVfQlVZRVIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjUxNDk5MTA4fQ.yLt31EmUzRMz_9KvEgvB68pyc9SQSL-pcZ5RSdTEaCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/transaction/deposit/reset",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"transaction",
+								"deposit",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy_product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1QnV5ZXIiLCJyb2xlcyI6IlJPTEVfQlVZRVIiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjUxNDk5MTA4fQ.yLt31EmUzRMz_9KvEgvB68pyc9SQSL-pcZ5RSdTEaCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"6b45194c-8dd4-4b3f-b8a1-01e4ad7a59fa\",\n    \"amount\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}:{{PORT}}/api/transaction/product/buy",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"transaction",
+								"product",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessTokenExpiry",
+			"value": ""
+		}
+	]
+}
