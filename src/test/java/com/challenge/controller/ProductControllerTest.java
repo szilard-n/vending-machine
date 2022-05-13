@@ -3,6 +3,7 @@ package com.challenge.controller;
 import com.challenge.dto.error.ApiErrorDto;
 import com.challenge.dto.product.DeleteProductDto;
 import com.challenge.dto.product.ProductDto;
+import com.challenge.dto.product.UpdateProductDto;
 import com.challenge.entity.User;
 import com.challenge.service.JWTService;
 import com.challenge.service.UserAuthenticationService;
@@ -151,12 +152,8 @@ public class ProductControllerTest {
             compareOperation = CompareOperation.CONTAINS)
     public void updateProduct_successfully() {
         var bearerToken = prepareTokenForRequest(SELLER_1);
-        var requestBody = ProductDto.builder()
-                .id(PRODUCT_1.getId())
-                .amountAvailable(80)
-                .cost(15)
-                .productName("Updated Product")
-                .build();
+        var requestBody = new UpdateProductDto(PRODUCT_1.getId(),
+                "Updated Product", 80, 15);
 
         given()
                 .contentType(ContentType.JSON)
@@ -171,12 +168,8 @@ public class ProductControllerTest {
     @DisplayName("A seller should not be able to update other seller's product")
     public void updateProduct_productNotFound() {
         var bearerToken = prepareTokenForRequest(SELLER_1);
-        var requestBody = ProductDto.builder()
-                .id(PRODUCT_4.getId())
-                .amountAvailable(80)
-                .cost(15)
-                .productName("Updated Product")
-                .build();
+        var requestBody = new UpdateProductDto(PRODUCT_4.getId(),
+                "Updated Product", 80, 15);
 
         given()
                 .contentType(ContentType.JSON)
@@ -191,12 +184,7 @@ public class ProductControllerTest {
     @DisplayName("Product should not be updated if an id is not provided")
     public void updateProduct_nullProductId() {
         var bearerToken = prepareTokenForRequest(SELLER_1);
-        var requestBody = ProductDto.builder()
-                .id(null)
-                .amountAvailable(80)
-                .cost(15)
-                .productName("Updated Product")
-                .build();
+        var requestBody = new UpdateProductDto(null, "Updated Product", 80, 15);
 
         given()
                 .contentType(ContentType.JSON)

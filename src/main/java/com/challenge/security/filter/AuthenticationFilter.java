@@ -10,6 +10,7 @@ import com.challenge.service.UserAuthenticationService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,6 +24,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * Filter class for authentication requests and JWT generator
@@ -30,18 +32,24 @@ import java.io.IOException;
 @Slf4j
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+    /**
+     * Error message keys
+     */
     private static final String UNABLE_TO_READ_REQUEST = "exception.authentication.unableToReadRequest";
+    private static final String ACTIVE_SESSIONS_PRESENT = "authentication.activeSessionsPresent";
 
     private final AuthenticationManager authenticationManager;
     private final ObjectMapper objectMapper;
     private final JWTService jwtService;
     private final UserAuthenticationService userAuthenticationService;
+    private final MessageSource messageSource;
 
     public AuthenticationFilter(AuthenticationManager authenticationManager, ApplicationContext applicationContext) {
         this.authenticationManager = authenticationManager;
         this.objectMapper = applicationContext.getBean(ObjectMapper.class);
         this.jwtService = applicationContext.getBean(JWTService.class);
         this.userAuthenticationService = applicationContext.getBean(UserAuthenticationService.class);
+        this.messageSource = applicationContext.getBean(MessageSource.class);
     }
 
     /**
@@ -78,7 +86,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         // check if user already has active tokens
         boolean hasUserActiveSessions = userAuthenticationService.isUserAlreadyAuthenticated(user.getUsername());
-        String responseMessage = hasUserActiveSessions ? "There is already an active session using your account" : null;
+        String responseMessage = hasUserActiveSessions ? messageSource.getMessage(ACTIVE_SESSIONS_PRESENT, null, Locale.ENGLISH) : null;
         AuthResponseDto authResponseDto = new AuthResponseDto(responseMessage, accessToken);
 
         // create a new authentication entry with the new token and set response
